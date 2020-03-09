@@ -7,9 +7,8 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"github.com/gohouse/golib/e"
 	"github.com/gohouse/golib/exception"
-	"github.com/gohouse/golib/tgbot/adapter"
-	"github.com/gohouse/golib/tgbot/api"
-	"github.com/gohouse/golib/tgbot/store"
+	"github.com/gohouse/tgbot/adapter"
+	"github.com/gohouse/tgbot/api"
 	"log"
 	"os"
 	"strings"
@@ -66,7 +65,7 @@ func NewTgBot(opts ...OptionHandleFunc) *TgBot {
 	// 初始化 updates
 	updates := getUpdates(bot)
 
-	tb := &TgBot{BotAPI: bot, updates: updates, cmds: &sync.Map{}, Store: store.BootRedis(), option: &opt}
+	tb := &TgBot{BotAPI: bot, updates: updates, cmds: &sync.Map{}, option: &opt}
 
 	tb.Listen("help", api.NewHelp())
 

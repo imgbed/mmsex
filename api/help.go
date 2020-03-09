@@ -1,11 +1,11 @@
 package api
 
 import (
+	"fmt"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
 type Help struct {
-	cooldown int
 }
 
 func NewHelp() *Help {
@@ -13,17 +13,14 @@ func NewHelp() *Help {
 }
 
 func (obj *Help) Alive() int64 {
-	return 60
+	return 0
 }
 
-func (mm *Help) Description() string {
-	return "帮助"
+func (obj *Help) Description() string {
+	return fmt.Sprintf("帮助")
 }
 
-func (mm *Help) GetCooldown() int {
-	return mm.cooldown
-}
-
-func (mm *Help) BuildChattable(update *tgbotapi.Update, cmdArgs string) (tc tgbotapi.Chattable) {
+func (ojb *Help) BuildChattable(update *tgbotapi.Update, cmdArgs string) (tc tgbotapi.Chattable) {
+	tc = tgbotapi.NewMessage(update.Message.Chat.ID, "Help()")
 	return
 }

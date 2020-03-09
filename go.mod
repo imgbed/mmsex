@@ -1,4 +1,4 @@
-module github.com/gohouse/golib/tgbot
+module github.com/gohouse/tgbot
 
 go 1.13
 

@@ -1,19 +1,17 @@
-package apiv3
+package api
 
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/go-redis/redis/v7"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"github.com/gohouse/golib/random"
 )
 
 type PCS struct {
-	rds *redis.Client
 }
 
-func NewPCS(rds *redis.Client) *PCS {
-	return &PCS{rds: rds}
+func NewPCS() *PCS {
+	return &PCS{}
 }
 
 func (obj *PCS) Alive() int64 {

@@ -1,7 +1,7 @@
 package cors
 
 import (
-	"github.com/gohouse/golib/tgbot"
+	"github.com/gohouse/tgbot"
 )
 
 func Sex(c *tgbot.Context) {
