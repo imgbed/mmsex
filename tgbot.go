@@ -3,7 +3,6 @@ package tgbot
 import (
 	"encoding/json"
 	"flag"
-	"github.com/go-redis/redis/v7"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"github.com/gohouse/golib/e"
 	"github.com/gohouse/golib/exception"
@@ -24,7 +23,7 @@ func init() {
 	flag.Parse()
 	if token=="" {
 		if f=="" {
-			f="config.json"
+			f="config.json.example"
 		}
 		fp,err:=os.Open(f)
 		if err!=nil {
@@ -48,7 +47,6 @@ type TgBot struct {
 	updates  *tgbotapi.UpdatesChannel
 	handlers []Cors
 	cmds     *sync.Map
-	Store    *redis.Client
 	option   *Options
 }
 
