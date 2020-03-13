@@ -108,7 +108,6 @@ func getBot() *tgbotapi.BotAPI {
 	return bot
 }
 func getUpdates(bot *tgbotapi.BotAPI) *tgbotapi.UpdatesChannel {
-
 	u := tgbotapi.NewUpdate(0)
 	u.Timeout = 60
 	updates := bot.GetUpdatesChan(u)
@@ -118,3 +117,7 @@ func getUpdates(bot *tgbotapi.BotAPI) *tgbotapi.UpdatesChannel {
 	//}
 	return &updates
 }
+//func getWebhookUpdates(bot *tgbotapi.BotAPI) *tgbotapi.UpdatesChannel {
+//	updates := bot.ListenForWebhook("/" + bot.Token)
+//	return &updates
+//}
